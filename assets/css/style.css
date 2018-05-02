@@ -78,3 +78,58 @@ footer {
     height: 5%;
     background-color: #276bb0;
 }
+
+input {
+	padding: 10px;
+	border-radius: 10px;
+	border: 1px solid #cccccc;
+}
+
+
+.panel-blue {
+	min-height: 200px;
+	height: auto;
+	padding: 10px;
+	background-color: #276bb0;
+	border: 1px solid #cccccc;
+}
+
+p > label, .texto-blanco {
+	margin-left: 5px;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.col {
+	margin-left: 5px;
+	height: auto;
+}
+
+
+.left {
+	float: left;
+}
+
+
+.middle {
+	position: relative;
+	float:right;
+	right: 50%;
+}
+
+.right {
+	float: right; 
+}
+
+.divisor {
+	border-bottom: 1px solid #cccccc;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+#calculo {	
+	margin-top:6%;
+	width: 20px;
+	height: 20px;
+}
+	
