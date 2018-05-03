@@ -32,9 +32,47 @@
         <h1>Introduccion / ¿Como funciona?</h1>
     </nav>
     <section>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit orci netus cras metus velit, ultrices torquent sociis ultricies proin faucibus laoreet vel curabitur tortor libero, augue nulla sem ullamcorper blandit penatibus fusce sollicitudin at a montes. Interdum felis phasellus primis viverra lobortis nisi leo et purus, placerat class euismod mi porttitor semper proin eleifend potenti, mattis cras litora donec penatibus maecenas est lacinia. Hac montes suspendisse semper erat lacinia primis leo purus id varius, dictumst sem dis euismod ligula proin malesuada mi hendrerit, cum eu magnis sed tristique magna eleifend feugiat neque. Dignissim convallis aliquet est nec semper hac curabitur et nunc, vivamus lacinia fusce pulvinar eu diam sagittis torquent platea consequat, eget mollis curae ornare magna dui scelerisque himenaeos. Molestie faucibus bibendum lectus viverra euismod rhoncus potenti curae rutrum sociosqu, facilisis est purus posuere tortor curabitur malesuada fermentum dapibus.</p> <p>Accumsan fames diam curae class erat fringilla tortor mauris consequat, fermentum volutpat pellentesque tristique nam netus mi ligula, elementum nunc hac iaculis potenti euismod conubia libero. Erat enim scelerisque cursus vulputate natoque, arcu tempor inceptos. Lectus gravida ac neque imperdiet etiam felis suscipit hendrerit penatibus faucibus ante iaculis, fermentum ad in netus hac conubia facilisis donec dis turpis. Inceptos vitae eget consequat eu ultricies ridiculus cursus lectus conubia, ultrices aliquet orci magna commodo gravida arcu ante per, leo velit porttitor dictum elementum risus auctor ad. Convallis sociosqu tempor venenatis tellus est aliquet luctus cursus, fames dignissim feugiat primis posuere ligula hendrerit ultricies, semper justo inceptos eleifend lobortis senectus fusce. Leo curae sapien habitant mattis non luctus nam, viverra id pellentesque malesuada egestas quam phasellus nullam, lacinia tempor pretium mollis nunc ultricies. Laoreet bibendum non auctor sociosqu arcu dictum euismod duis nunc enim, rhoncus cras vehicula tortor tempus venenatis nec pretium proin, nostra urna nulla cursus nascetur at tristique himenaeos sollicitudin.</p> <p>Est iaculis condimentum conubia convallis orci sociis, porttitor leo mauris id viverra, pharetra blandit eros etiam tempus. Iaculis integer ut per fames phasellus mus netus velit, nostra tristique fusce habitasse convallis varius neque enim, magnis vel mollis tempor litora ultrices viverra. Dictumst euismod mi scelerisque hendrerit nec penatibus imperdiet cubilia lacinia accumsan, maecenas aliquam at torquent quam luctus lacus nisi curae. Augue dignissim porttitor vivamus urna per ad scelerisque, sed tellus nascetur nisi vitae lobortis. Justo litora ultrices facilisi luctus molestie quam cras sollicitudin mus aliquam, cubilia pharetra blandit felis natoque libero ut malesuada posuere urna, nibh elementum donec lacus tortor tellus condimentum sagittis interdum. Pretium tristique augue malesuada platea sociosqu dui nunc sagittis facilisis viverra, proin odio elementum quam commodo eget phasellus sodales pellentesque ornare neque, donec tortor lobortis facilisi lectus at cursus etiam ultricies. Et auctor ad orci ac nisl cubilia mi arcu vivamus euismod in suscipit hac mollis etiam, diam congue sed nascetur platea lectus suspendisse justo vitae maecenas phasellus lobortis tortor. Elementum blandit mus id penatibus nostra libero facilisi, purus nisl hac habitant ligula orci, commodo vivamus malesuada dis integer accumsan.</p>
+	<p>	
+		Para un circuito resistor-capacitor, donde el capacitor tiene un voltaje individual Vr = V0, <br>
+		el voltaje disminuira exponencialmente de acuerdo a la ecuacion: <br>
+		<strong><h1>v(t)=V0e^-t/RC</h1></strong>
+	</p>
+	<p> El circuito se puede representar en 3 estados diferentes</p>
+	<img src="assets/images/estado1.png" />
+	<p>
+		El nodo de entrada <strong>Ve</strong> del circuito <strong>RC</strong> esta conectado a traves de un interruptor a la terminal negativa de la bateria.</p>
+	<p>
+		Queremos saber que pasa con <strong>Vc</strong>, el voltaje en el capacitor, cuando subimos y bajamos el interruptor.
+	</p>
+	<p> <h3> Analizaremos los siguientes estados: </h3> </p>
+	<p> <h4> - Antes de subir el interruptor </h4> </p>
+	<p> <h4> - Despues de subir el interruptor </h4> </p>
+	<p> <h4> - Despues de bajar el interruptor </h4> </p>
+	<p> <h2> Antes de subir el interruptor </h2> </p>
+	<p>
+		Comenzamos nuestro anaalisis al determinar el estado inicial del circuito, antes de que algo cambie.<br>
+		Con el interruptor hacia abajo, podemos dibujar el siguiente circuito equivalente,<br>
+		donde <strong>Ve</strong> es igual a 0 volts y el lado izquierdo de <strong>R</strong> esta conectado a la parte inferior de <strong>C</strong>.
+	</p>
+	<img src="assets/images/estado2.png" />
+	<p>
+		Supongamos por el momento que el circuito lleva mucho tiempo en este estado, de tal manera que cualquier carga almacenada en el capacitor ya se haya drenado a traves del resistor; asi, <strong>qC</strong> = 0.<br>
+		De este hecho, sabemos que el voltaje a traves del capacitor debe ser de 0 volts, pues <strong>Vc</strong> = <strong>q</strong> / <strong>C</strong> = 0 / <strong>C</strong> = 0v 
+		Como a traves del capacitor hay 0 volts, tampoco hay voltaje a traves del resistor, por lo que la corriente que fluye por <strong>R</strong> (y la corriente que fluye por el capacitor) debe ser igual a 0 amperes.</p>
+	<p>	
+		Decimos que el circuito esta en estado estacionario, en reposo o en equilibrio. Hemos respondido la primera pregunta,<br>
+		<h3>"&iquest;Cual es el voltaje a traves de <strong>C</strong> antes subir el interruptor?"</h3>
+	</p>
+	<p> <h2> Despues de subir el interruptor </h2> </p>
+	<p>
+		Ahora subimos el interruptor. El voltaje <strong>Ve</strong> se vuelve <strong>Vbat</strong>.
+	</p>
+	<img src="assets/images/estado3.png" />
+	<br>
+https://es.khanacademy.org/science/electrical-engineering/ee-circuit-analysis-topic/ee-natural-and-forced-response/a/ee-rc-natural-response
     </section>
     <footer>
+	<p class="texto-blanco"> Creado por Matias S. Miranda - Estudiante de Licenciatura en bioinformatica</p>
     </footer>
 </body>
 </html>

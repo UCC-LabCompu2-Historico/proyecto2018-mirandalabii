@@ -2,6 +2,8 @@ html, body {
 margin: 0;
 padding: 0;
 height: 100%;
+font-family: calibri;
+background-color: #454d55;
 }
 
 header {
@@ -13,16 +15,14 @@ header {
     background-color: #276bb0;
     height: 100px;
     font-size: 20px;
-    color: #ffffff;
-    font-family: calibri;
+    color: #ffffff;    
 }
 
 header > h1 {
     margin-left: 20px;
 }
 
-aside {
-    display: block;
+aside {    
     background-color: #454d55;
     width:250px;
     height: 100%;
@@ -37,7 +37,7 @@ ul
     list-style-type: none;
 }
 
-aside > ul > li {
+aside > ul > li {	
     width: 180px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -63,11 +63,13 @@ nav {
 }
 
 section{
+    height: 100%;
     margin:auto;
-    overflow:hidden;
+    overflow:scroll;
     padding: 10px;
     font-family: calibri;
     font-size: 16px;
+    background-color: #ffffff;
 }
 
 footer {
@@ -85,14 +87,27 @@ input {
 	border: 1px solid #cccccc;
 }
 
+select, option {
+	padding-left: 2px;
+	background-color: #276bb0;
+	border: none;
+}
 
-.panel-blue {
-	min-height: 200px;
+.panel-blue {	
 	height: auto;
-	padding: 10px;
+	padding: 5px;
 	background-color: #276bb0;
 	border: 1px solid #cccccc;
 }
+
+.a200 {
+	min-height: 200px;
+} 
+
+.a100 {
+	min-height: 100px;
+} 
+
 
 p > label, .texto-blanco {
 	margin-left: 5px;
@@ -121,6 +136,10 @@ p > label, .texto-blanco {
 	float: right; 
 }
 
+.a50 {
+	width: 45%;
+}
+
 .divisor {
 	border-bottom: 1px solid #cccccc;
 	margin-top: 20px;
@@ -131,5 +150,9 @@ p > label, .texto-blanco {
 	margin-top:6%;
 	width: 20px;
 	height: 20px;
+}
+
+#canvas {
+	margin-left:15%;
 }
 	
