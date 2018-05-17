@@ -11,7 +11,7 @@
     <script type="text/javascript" src="assets/js/jquery-2.1.3.min.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
-    <link rel="shortcut icon" href="assets/images/logo_anglo.png" />
+    <link rel="shortcut icon" href="assets/images/logo.png" />
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">    
 </head>
 <body>
@@ -36,37 +36,39 @@
 		<div class="col left">
 			<p><label for="voltaje">Voltaje de la fuente</label></p>
 			<input type="number" id="voltaje" />
-			<select id="unidad_voltaje" class="texto-blanco">				
+			<select id="unidad_voltaje" min="1" max="9999" class="texto-blanco">				
 				<option value="1">V</option>
 				<option value="100">mV</option>
 			</select>
 			<p><label for="resistencia">Valor de la resistencia</label></p>
-			<input type="number" id="resistencia" />
-			<select id="unidad_resistencia" class="texto-blanco">				
+			<input type="number" min="1" max="9999" id="resistencia" onchange="CalcularTau();CalcularCapacitor();" />
+			<select id="unidad_resistencia" onchange="CalcularTau();" class="texto-blanco">				
 				<option value="1">&Omega;</option>
 				<option value="1000">k&Omega;</option>
 				<option value="1000000">M&Omega;</option>
 			</select>
 		</div>
 		<div class="col middle">
-			<input type="radio" name="calculo" id="calculo" value="1"><span class="texto-blanco">Calcular Capacitor</span>
+			<input type="radio" name="calculo" onclick="CambiarCalculo(1);"><span class="texto-blanco">Calcular Capacitor</span>
 			<p><label for="capacitor">Valor del capacitor</label></p>
-			<input type="number" id="capacitor" />
-			<select id="unidad_capacitor" class="texto-blanco">				
-				<option value="1">&mu;F</option>
-				<option value="1000">&eta;F</option>
-				<option value="1000000">&rho;F</option>
+			<input type="number" min="1" max="9999" id="capacitor" onchange="CalcularTau();" />
+			<select id="unidad_capacitor" onchange="CalcularTau();" class="texto-blanco">				
+				<option value="1000000">&mu;F</option>
+				<option value="1000000000">&eta;F</option>
+				<option value="1000000000000">&rho;F</option>
 			</select>
 		</div>
 		<div class="col right">
-			<input type="radio" name="calculo" id="calculo" value="2"><span class="texto-blanco">Calcular T</span>
+			<input type="radio" name="calculo" onclick="CambiarCalculo(2);"><span class="texto-blanco">Calcular T</span>
 			<p><label for="tau">Valor de T</label></p>
-			<input type="number" id="tau" /><span class="texto-blanco"></span>
+			<input type="number" id="tau" onchange="CalcularCapacitor();" /><span class="texto-blanco"></span>
 		</div>
 	</div>
 	<div class="divisor"></div>
 	<div class="panel-blue a100">
 		<h1 class="texto-blanco"> Resultados </h1>
+		<div id="resultado">
+		</div>
 	</div>
 	<canvas id="canvas" width="700" height="400">
 	</canvas>	
