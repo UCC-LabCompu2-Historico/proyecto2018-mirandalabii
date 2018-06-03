@@ -12,7 +12,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
     <link rel="shortcut icon" href="assets/images/logo.png" />
-    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">    
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
 </head>
 <body>
     <header>
@@ -36,13 +36,13 @@
 		<div class="col left">
 			<p><label for="voltaje">Voltaje de la fuente</label></p>
 			<input type="number" id="voltaje" />
-			<select id="unidad_voltaje" min="1" max="9999" class="texto-blanco">				
+			<select id="unidad_voltaje" min="1" max="9999" class="texto-blanco">
 				<option value="1">V</option>
 				<option value="100">mV</option>
 			</select>
 			<p><label for="resistencia">Valor de la resistencia</label></p>
 			<input type="number" min="1" max="9999" id="resistencia" onchange="CalcularTau();CalcularCapacitor();" />
-			<select id="unidad_resistencia" onchange="CalcularTau();" class="texto-blanco">				
+			<select id="unidad_resistencia" onchange="CalcularTau();" class="texto-blanco">
 				<option value="1">&Omega;</option>
 				<option value="1000">k&Omega;</option>
 				<option value="1000000">M&Omega;</option>
@@ -52,7 +52,7 @@
 			<input type="radio" name="calculo" onclick="CambiarCalculo(1);"><span class="texto-blanco">Calcular Capacitor</span>
 			<p><label for="capacitor">Valor del capacitor</label></p>
 			<input type="number" min="1" max="9999" id="capacitor" onchange="CalcularTau();" />
-			<select id="unidad_capacitor" onchange="CalcularTau();" class="texto-blanco">				
+			<select id="unidad_capacitor" onchange="CalcularTau();" class="texto-blanco">
 				<option value="1000000">&mu;F</option>
 				<option value="1000000000">&eta;F</option>
 				<option value="1000000000000">&rho;F</option>
@@ -65,17 +65,21 @@
 		</div>
 	</div>
 	<div class="divisor"></div>
-	<div class="panel-blue a100">
-		<h1 class="texto-blanco"> Resultados </h1>
+	<div class="panel-blue a100 texto-blanco">
+		<h1> Resultados </h1>
 		<div id="resultado">
+            <p>El capactior se va a cargar al 63% del valor de la fuente en: <span id="resultado_tau"> </span></p>
+            <p>Voltaje maximo de carga: <span id="resultado_voltaje"> </span></p>
+            <p>Tiempo de carga al valor de la fuente: <span id="resultado_tiempo"> </span><p>
+            <button class="btn-grey" onclick="Animar();">Simular</button>
 		</div>
 	</div>
-	<canvas id="canvas" width="700" height="400">
-	</canvas>	
+	<canvas id="canvas" width="500" height="300">
+	</canvas>
     </section>
     <footer>
 	<p class="texto-blanco"> Creado por Matias S. Miranda - Estudiante de Licenciatura en bioinformatica</p>
     </footer>
-    <script type="text/javascript" src="assets/js/simulador.js"></script> 
+    <script type="text/javascript" src="assets/js/simulador.js"></script>
 </body>
 </html>

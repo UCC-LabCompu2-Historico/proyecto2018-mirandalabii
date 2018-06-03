@@ -15,14 +15,14 @@ header {
     background-color: #276bb0;
     height: 100px;
     font-size: 20px;
-    color: #ffffff;    
+    color: #ffffff;
 }
 
 header > h1 {
     margin-left: 20px;
 }
 
-aside {    
+aside {
     background-color: #454d55;
     width:250px;
     height: 100%;
@@ -37,7 +37,7 @@ ul
     list-style-type: none;
 }
 
-aside > ul > li {	
+aside > ul > li {
     width: 180px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -93,7 +93,7 @@ select, option {
 	border: none;
 }
 
-.panel-blue {	
+.panel-blue {
 	height: auto;
 	padding: 5px;
 	background-color: #276bb0;
@@ -102,11 +102,11 @@ select, option {
 
 .a200 {
 	min-height: 200px;
-} 
+}
 
 .a100 {
 	min-height: 100px;
-} 
+}
 
 
 p > label, .texto-blanco {
@@ -133,7 +133,7 @@ p > label, .texto-blanco {
 }
 
 .right {
-	float: right; 
+	float: right;
 }
 
 .a50 {
@@ -146,7 +146,17 @@ p > label, .texto-blanco {
 	margin-bottom: 20px;
 }
 
-#calculo {	
+.btn-grey{
+    background-color: #cccccc;
+    color: #2a2a2a;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+
+#calculo {
 	margin-top:6%;
 	width: 20px;
 	height: 20px;
@@ -155,4 +165,3 @@ p > label, .texto-blanco {
 #canvas {
 	margin-left:15%;
 }
-	
