@@ -10,7 +10,7 @@ Contenido
 El contenido de la web se dispone de 3 secciones:
 
 <ul>
-  <ol>
+  <lo>
     Index
-  </ol>
+  </lo>
 </ul>
