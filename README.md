@@ -11,12 +11,12 @@ El contenido de la web se dispone de 3 secciones:
 
 <ul>
   <li>
-    1.index.html
+    index.html
   </li>
   <li>
-    2.como.html
+    como.html
   </li>
   <li>
-    1.simulador.html
+    simulador.html
   </li>
 </ul>
