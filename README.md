@@ -9,4 +9,4 @@ Contenido
 ---------------------
 El contenido de la web se dispone de 3 secciones:
 
-1.**Index:
+1.###Index:
