@@ -21,4 +21,4 @@ El contenido de la web se dispone de 3 secciones:
   </li>
 </ul>
 
-[ver] (http://ucc-labcompu2.github.io/proyecto2018-mirandalabii)
+[ver]http://ucc-labcompu2.github.io/proyecto2018-mirandalabii
