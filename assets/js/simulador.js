@@ -1,16 +1,20 @@
 // Inicializamos calculo = 2 para que por defecto calcule TAU
 var calculo = 2;
 
-// @name: CambiarCalculo
-// @Param: int
-// @Return: none
+/**
+* @method CambiarCalculo
+* @param int
+* @return none
+*/
 function CambiarCalculo(val) {
 	calculo = val;
 }
 
-// @name: CalcularTau
-// @Param: none
-// @Return: none
+/**
+* @method CalcularTau
+* @param none
+* @return none
+*/
 function CalcularTau () {
 
 	// Lectura del input resistencia
@@ -27,7 +31,7 @@ function CalcularTau () {
 		// Verificacion de los valores de los input's
 		if(resistencia > -1 && capacitor > -1){
 			// Asignamos el resultado al input TAU
-			document.getElementById("tau").value = (resistencia*unidad_resistencia)*(capacitor/unidad_capacitor);
+			document.getElementById("tau").value = (resistencia*unidad_resistencia)*(capacitor/unidad_capacitor).toFixed(8);
 		}else{
 			// Alerta de error
 			alert("los valores deben ser positivos");
@@ -38,9 +42,11 @@ function CalcularTau () {
 	Resultados(document.getElementById("tau").value);
 }
 
-// @name: CalcularCapacitor
-// @Param: none
-// @Return: none
+/**
+* @method CalcularCapacitor
+* @param none
+* @return none
+*/
 function CalcularCapacitor () {
 
 	// Lectura del input resistencia
@@ -57,7 +63,7 @@ function CalcularCapacitor () {
 		// Verificacion de los valores de los input's
 		if(resistencia > -1 && tau > -1){
 			// Asignamos el resultado al input capacitor
-			document.getElementById("capacitor").value = (tau/(resistencia*unidad_resistencia))/unidad_capacitor;
+			document.getElementById("capacitor").value = ((tau/(resistencia*unidad_resistencia))/unidad_capacitor).toFixed(4);
 		}else{
 			// Alerta de error
 			alert("los valores deben ser positivos");
@@ -68,9 +74,11 @@ function CalcularCapacitor () {
 	Resultados(tau);
 }
 
-// @name: CalcularCapacitor
-// @Param: float
-// @Return: none
+/**
+* @method CalcularCapacitor
+* @param float
+* @return none
+*/
 function Resultados(tau){
 
 	// Lectura del input voltaje
@@ -113,7 +121,7 @@ var velocidad = 10;
 var factor = 1;
 var xMove = xOrigin;
 var yMove = yOrigin;
-var cantidad= 50; // Cantidad de electrones
+var cantidad= 45; // Cantidad de electrones
 var radio= 10; // Radio de los electrones
 var xPos = []; // Array de posiciones en Y de los electrones
 var yPos = []; // Array de posiciones en X de los electrones
@@ -237,14 +245,14 @@ function loop(){
 		ctx.stroke();
 		ctx.closePath();
 
-		if(parseInt(xPos[i]) >= xOrigin && parseInt(xPos[i]) < xFinal && parseInt(yPos[i]) == yOrigin){
-			xPos[i] += factor;
-		}else if(parseInt(yPos[i]) >= yOrigin && parseInt(yPos[i]) < yFinal && parseInt(xPos[i]) == xFinal){
-			yPos[i] += factor;
-		}else if(parseInt(xPos[i]) <= xFinal && parseInt(xPos[i]) > xOrigin && parseInt(yPos[i]) == yFinal){
+		if(parseInt(xPos[i]) >= xOrigin && parseInt(xPos[i]) <= xFinal && parseInt(yPos[i]) == yOrigin){
 			xPos[i] -= factor;
-		}else{
+		}else if(parseInt(yPos[i]) >= yOrigin && parseInt(yPos[i]) <= yFinal && parseInt(xPos[i]) == xFinal){
 			yPos[i] -= factor;
+		}else if(parseInt(xPos[i]) < xFinal && parseInt(yPos[i]) == yFinal){
+			xPos[i] += factor;
+		}else if(parseInt(yPos[i]) < yFinal){
+			yPos[i] += factor;
 		}
 
 
@@ -280,8 +288,8 @@ function Animar(){
 	clearInterval(interval);
 
 	var pos = radio*4;
-	var cantidadX = widthCanvas/pos;
-	var cantidadY = heightCanvas/pos;
+	var cantidadX = widthCanvas/pos + 1;
+	var cantidadY = heightCanvas/pos - 1;
 	var x1 = 0;
 	var y1 = 0;
 	var x2 = 0;
@@ -305,7 +313,7 @@ function Animar(){
 
 		if(x1 > cantidadX-1 && y1 < cantidadY-1){
 			xPos[i] = xFinal;
-			yPos[i] = yOrigin + pos*y1;
+			yPos[i] = yOrigin + pos*y1 + pos;
 			y1++;
 		}
 
