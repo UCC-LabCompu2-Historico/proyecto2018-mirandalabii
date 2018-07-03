@@ -1,54 +1,100 @@
+// Inicializamos calculo = 2 para que por defecto calcule TAU
 var calculo = 2;
 
+/**
+* @method CambiarCalculo
+* @param int
+* @return none
+*/
 function CambiarCalculo(val) {
 	calculo = val;
 }
 
+/**
+* @method CalcularTau
+* @param none
+* @return none
+*/
 function CalcularTau () {
 
+	// Lectura del input resistencia
 	var resistencia = document.getElementById("resistencia").value;
+	// Lectura del select unidad resistencia
 	var unidad_resistencia = document.getElementById("unidad_resistencia").value;
+	// Lectura del input capacitor
 	var capacitor = document.getElementById("capacitor").value;
+	// Lectura del select unidad capacitor
 	var unidad_capacitor = document.getElementById("unidad_capacitor").value;
 
+	// Seleccion de calculo de tau
 	if(calculo == 2){
+		// Verificacion de los valores de los input's
 		if(resistencia > -1 && capacitor > -1){
-			document.getElementById("tau").value = (resistencia*unidad_resistencia)*(capacitor/unidad_capacitor);
+			// Asignamos el resultado al input TAU
+			document.getElementById("tau").value = (resistencia*unidad_resistencia)*(capacitor/unidad_capacitor).toFixed(8);
 		}else{
+			// Alerta de error
 			alert("los valores deben ser positivos");
 		}
 	}
 
+	//Funcion de impresion de resultados
 	Resultados(document.getElementById("tau").value);
 }
 
+/**
+* @method CalcularCapacitor
+* @param none
+* @return none
+*/
 function CalcularCapacitor () {
 
+	// Lectura del input resistencia
 	var resistencia = document.getElementById("resistencia").value;
+	// Lectura del input TAU
 	var tau = document.getElementById("tau").value;
+	// Lectura del select unidad resistencia
 	var unidad_resistencia = document.getElementById("unidad_resistencia").value;
+	// Lectura del select unidad capacitor
 	var unidad_capacitor = document.getElementById("unidad_capacitor").value;
 
+	// Seleccion de calculo de capacitor
 	if(calculo == 1){
+		// Verificacion de los valores de los input's
 		if(resistencia > -1 && tau > -1){
-			document.getElementById("capacitor").value = (tau/(resistencia*unidad_resistencia))/unidad_capacitor;
+			// Asignamos el resultado al input capacitor
+			document.getElementById("capacitor").value = ((tau/(resistencia*unidad_resistencia))/unidad_capacitor).toFixed(4);
 		}else{
+			// Alerta de error
 			alert("los valores deben ser positivos");
 		}
 	}
 
+	//Funcion de impresion de resultados
 	Resultados(tau);
 }
 
+/**
+* @method CalcularCapacitor
+* @param float
+* @return none
+*/
 function Resultados(tau){
 
+	// Lectura del input voltaje
 	var voltaje = document.getElementById("voltaje").value;
+	// Lectura del select unidad voltaje
 	var unidad_voltaje = document.getElementById("unidad_voltaje").value;
+	// Calculo de Nominal
 	var resultado_voltaje = 99 * voltaje/unidad_voltaje / 100;
+	// Calculo del voltaje en tiempo TAU
 	var resultado_tiempo = 100 * tau / 63;
 
+	// Imprimimos el resultado de TAU
 	document.getElementById("resultado_tau").innerHTML = tau + 's';
+	// Impremimos el valor del voltaje nominal
 	document.getElementById("resultado_voltaje").innerHTML = resultado_voltaje.toFixed(2) + 'V';
+	// Imprimimo es resultado del tiempo maximo de carga
 	document.getElementById("resultado_tiempo").innerHTML = resultado_tiempo.toFixed(2) + 's';
 }
 
@@ -57,8 +103,7 @@ var canvas = document.getElementById("canvas");
 var widthCanvas = 500;
 var heightCanvas = 300;
 var ctx = canvas.getContext("2d");
-var img = new Image();
-img.src = "assets/images/fondo_canvas.jpg";
+
 //Origenes
 var xOrigin = 26;
 var yOrigin = 44;
@@ -76,10 +121,10 @@ var velocidad = 10;
 var factor = 1;
 var xMove = xOrigin;
 var yMove = yOrigin;
-var cantidad= 50;
-var radio= 10;
-var xPos = [];
-var yPos = [];
+var cantidad= 45; // Cantidad de electrones
+var radio= 10; // Radio de los electrones
+var xPos = []; // Array de posiciones en Y de los electrones
+var yPos = []; // Array de posiciones en X de los electrones
 var color= '#276bb0';
 var colorc= '#000000';
 var colorl= '#ffffff';
@@ -200,14 +245,14 @@ function loop(){
 		ctx.stroke();
 		ctx.closePath();
 
-		if(parseInt(xPos[i]) >= xOrigin && parseInt(xPos[i]) < xFinal && parseInt(yPos[i]) == yOrigin){
-			xPos[i] += factor;
-		}else if(parseInt(yPos[i]) >= yOrigin && parseInt(yPos[i]) < yFinal && parseInt(xPos[i]) == xFinal){
-			yPos[i] += factor;
-		}else if(parseInt(xPos[i]) <= xFinal && parseInt(xPos[i]) > xOrigin && parseInt(yPos[i]) == yFinal){
+		if(parseInt(xPos[i]) >= xOrigin && parseInt(xPos[i]) <= xFinal && parseInt(yPos[i]) == yOrigin){
 			xPos[i] -= factor;
-		}else{
+		}else if(parseInt(yPos[i]) >= yOrigin && parseInt(yPos[i]) <= yFinal && parseInt(xPos[i]) == xFinal){
 			yPos[i] -= factor;
+		}else if(parseInt(xPos[i]) < xFinal && parseInt(yPos[i]) == yFinal){
+			xPos[i] += factor;
+		}else if(parseInt(yPos[i]) < yFinal){
+			yPos[i] += factor;
 		}
 
 
@@ -240,9 +285,11 @@ function loop(){
 
 function Animar(){
 
+	clearInterval(interval);
+
 	var pos = radio*4;
-	var cantidadX = widthCanvas/pos;
-	var cantidadY = heightCanvas/pos;
+	var cantidadX = widthCanvas/pos + 1;
+	var cantidadY = heightCanvas/pos - 1;
 	var x1 = 0;
 	var y1 = 0;
 	var x2 = 0;
@@ -266,7 +313,7 @@ function Animar(){
 
 		if(x1 > cantidadX-1 && y1 < cantidadY-1){
 			xPos[i] = xFinal;
-			yPos[i] = yOrigin + pos*y1;
+			yPos[i] = yOrigin + pos*y1 + pos;
 			y1++;
 		}
 
